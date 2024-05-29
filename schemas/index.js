@@ -10,7 +10,7 @@ const connect = () => {
     // 몽구스 <-> 몽고디비 연결
     // 주소 형식 mongodb: //[username:password@]host[ :port] [/[database] [?options] ]
     // mongodb : // 이름: 비밀번호@DB서버IP주소 :27017/admin
-    mongoose.connect('mongodb://mongodb:mongodb@172.31.62.84:27017/admin', {
+    mongoose.connect('mongodb://mongodb:mongodb@localhost:27017/admin', {
         dbName: 'nodejs', // 연결할 데이터베이스 이름
         userNewUrlParser: true,  // userNewUrlParser 옵션을 true로 설정합니다. (선택 사항)
     }).then(() => {

@@ -12,7 +12,7 @@ const commentsRouter = require('./routes/comments');
 const app = express(); // Express 애플리케이션 생성
 
 // 포트 설정 -> 환경 변수에서 PORT를 가져오거나 포트 기본값을 3002로 설정
-app.set('port', process.env.PORT || 3002);
+app.set('port', process.env.PORT || 3001);
 app.set('view engine', 'html'); // 뷰 엔진 -> html로 설정
 
 // Nunjucks 설정 
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // 라우터를 등록
 app.use('/', indexRouter);
-app.use('/', usersRoter);
+app.use('/', usersRouter);
 app.use('/', commentsRouter);
 
 // 404 에러 처리 미들웨어
