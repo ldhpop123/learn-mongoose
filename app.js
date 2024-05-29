@@ -5,6 +5,10 @@ const nunjucks = require('nunjucks'); // 템플릿 엔진으로 Nunjucks 사용
 
 const connect = require('./schemas'); // MongoDB 연결 함수
 
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const commentsRouter = require('./routes/comments');
+
 const app = express(); // Express 애플리케이션 생성
 
 // 포트 설정 -> 환경 변수에서 PORT를 가져오거나 포트 기본값을 3002로 설정
@@ -26,6 +30,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 // URL 인코딩 파싱 미들웨어 등록
 app.use(express.urlencoded({ extended: false }));
+
+// 라우터를 등록
+app.use('/', indexRouter);
+app.use('/', usersRoter);
+app.use('/', commentsRouter);
 
 // 404 에러 처리 미들웨어
 app.use((req, res, next) => {
